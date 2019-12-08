@@ -158,8 +158,6 @@
 
 ![](https://github.com/2018310985/Java5/blob/master/image/9.png)
 
-点击“删除课程”弹出上述窗体，点击课程前方按钮，删除对应课程
-
 ![](https://github.com/2018310985/Java5/blob/master/image/10.png)
 
     button2.addActionListener(new ActionListener() {
@@ -195,13 +193,114 @@
 			    cou.close();
 			    bou.close();
           
-          
+点击“删除课程”弹出如下窗体，点击课程前方按钮，删除对应课程
+
 ![](https://github.com/2018310985/Java5/blob/master/image/11.png)
+
+	JButton button21 = new JButton("确定");
+	JButton button22 = new JButton("返回");
+	panel23.add(button21);
+	panel23.add(button22);
+	button21.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		/ TODO Auto-generated method stub
+		String jta2 = new String();
+		Component[] com = panel22.getComponents();
+
+		if (null != com) {
+			for (int i = 0; i < com.length; i++) {
+				if (com[i] instanceof JRadioButton) {
+				JRadioButton jrb = (JRadioButton) com[i];
+				if (jrb.isSelected()) {
+					jta2 = jrb.getText();
+				}
+			}
+		}
+	}
+	System.out.println(jta2);
+	File c = new File("c:\\Users\\曹力\\Desktop\\course.txt");
+	FileReader cou;
+	StringBuffer courseBuffer = new StringBuffer();
+	try {
+		cou = new FileReader(c);
+		BufferedReader bou = new BufferedReader(cou);
+		String crString = "";
+		crString = bou.readLine();
+		String[] course = crString.split(",");
+		cou.close();
+		bou.close();
+		course[Integer.valueOf(jta2) - 1] = "";
+		for (int i = 0; i < course.length; i++) {
+			courseBuffer.append(course[i]);													if (course[i] == "") {
+				continue;														} else {
+				courseBuffer.append(",");
+			}
+		}
+	} catch (Exception e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	FileWriter writer;
+	try {
+		writer = new FileWriter(c);
+		writer.write(courseBuffer.toString());
+		writer.flush();
+		writer.close();
+	} catch (Exception e1) {														// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
 ![](https://github.com/2018310985/Java5/blob/master/image/12.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/13.png)
+
+至此，管理端结束
+进入学生模块
+
+点击学生注册，将验证“密码”与“确认密码”是否相同
+相同则注册成功
+
 ![](https://github.com/2018310985/Java5/blob/master/image/14.png)
+
+将输入的用户名密码保存在student.txt中
+	
+	if (password.equals(password2)) {
+		try {
+			RandomAccessFile randomFile = new RandomAccessFile("c:\\Users\\曹力\\Desktop\\student.txt", "rw");
+			long fileLength = randomFile.length();
+			randomFile.seek(fileLength);
+			randomFile.writeBytes(name + " " + password + ",");
+			randomFile.close();
+			frame9.setVisible(false);
+			JFrame aFrame = new JFrame();
+			aFrame.setLocation(200, 50);
+			aFrame.setSize(100, 100);
+			aFrame.setVisible(true);
+			JLabel aJLabel = new JLabel("注册成功，请返回登录");
+			aFrame.add(aJLabel);
+			JButton aButton = new JButton("返回");
+			aFrame.add(aButton);
+			aButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+					aFrame.setVisible(false);
+				}
+			});
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+点击学生端 与管理端相同的界面，验证方法相似，因此不做过多解释
+
 ![](https://github.com/2018310985/Java5/blob/master/image/15.png)
+
+登录，弹出已选课程页面
+
 ![](https://github.com/2018310985/Java5/blob/master/image/16.png)
+
+点击“选课”，进入选课页面，此处于管理端“删除课程”类似代码就不贴了
+
 ![](https://github.com/2018310985/Java5/blob/master/image/17.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/18.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/19.png)
