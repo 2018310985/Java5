@@ -299,11 +299,21 @@
 
 ![](https://github.com/2018310985/Java5/blob/master/image/16.png)
 
-点击“选课”，进入选课页面，此处于管理端“删除课程”类似代码就不贴了
+点击“选课”，进入选课页面，无论是“选课”还是“退课”都是从管理端“删除课程”那复制过来在改一改的代码就不贴了
 
 ![](https://github.com/2018310985/Java5/blob/master/image/17.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/18.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/19.png)
+
+选择退课
+
 ![](https://github.com/2018310985/Java5/blob/master/image/20.png)
 ![](https://github.com/2018310985/Java5/blob/master/image/21.png)
+
+打印课表输出于控制台
+
 ![](https://github.com/2018310985/Java5/blob/master/image/22.png)
+
+####心得体会
+这次实验的代码量是我学习以来最多了，压力很大，但却是增加了我的熟练度。代码量多的一个重要原因是我有三大段重复代码，我认为这完全可以通过调用来精简，但时间太少，我选择了轻松简单的Ctrl+C Ctrl+V
+而且代码总会莫名报错，前一天刚敲好时能正常运行，过两天回来再看就不行了，时间太紧，没法挑了
